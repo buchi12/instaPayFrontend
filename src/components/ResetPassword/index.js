@@ -14,6 +14,7 @@ const ResetPassword = () => {
       Axios.post(`http://localhost:3000/auth/reset-password/${token}`, {
         password,
       }).then(response => {
+        alert("Password Updated Sucessfull")
           navigate('/login')
           console.log(response.data)
       }).catch(err => {
