@@ -13,7 +13,7 @@ const ForgotPassword = () => {
       Axios.post("http://localhost:3000/auth/forgot-password", {
         email,
       }).then(response => {
-          if(response.data.status) {
+          if(response.data.message === 'check your email') {
             alert("check you email for reset password link")
               navigate('/login')
           }

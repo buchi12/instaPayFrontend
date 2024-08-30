@@ -21,7 +21,7 @@ const Login = () => {
           },
          
         });
-        
+        alert('Login Sucessfull')
         // Log the response data
         console.log('Response from server:', response.data);
       } catch (error) {

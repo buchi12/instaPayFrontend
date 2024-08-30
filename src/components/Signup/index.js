@@ -1,6 +1,7 @@
 import React, {  useState } from 'react';
 import axios from 'axios';
 import { CSSTransition} from 'react-transition-group';
+import {  useNavigate } from "react-router-dom";
 import './Signup.css'; // Import your CSS file
 
 const Step1 = ({ formData, setFormData, nextStep }) => {
@@ -214,6 +215,7 @@ const Step3 = ({ formData, setFormData, prevStep, submitForm }) => {
 };
 
 const Signup = () => {
+  const navigate = useNavigate()  
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstname: '',
@@ -244,6 +246,9 @@ const Signup = () => {
         },
       });
       console.log('Response from server:', response.data);
+      if (response.data != null){
+        navigate('/login')
+      }
     } catch (error) {
       if (error.response && error.response.status === 400) {
         const errors = error.response.data.errors;

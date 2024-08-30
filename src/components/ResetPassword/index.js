@@ -11,12 +11,10 @@ const ResetPassword = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      Axios.post("http://localhost:3000/auth/reset-password/"+token, {
+      Axios.post(`http://localhost:3000/auth/reset-password/${token}`, {
         password,
       }).then(response => {
-          if(response.data.status) {
-              navigate('/login')
-          }
+          navigate('/login')
           console.log(response.data)
       }).catch(err => {
           console.log(err)
@@ -34,7 +32,7 @@ const ResetPassword = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Reset</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
